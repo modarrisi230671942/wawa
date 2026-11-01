@@ -20,37 +20,46 @@
     <div class="glow-bg glow-secondary"></div>
 
     <!-- Navigation Header -->
-    <header class="navbar">
+    <header class="navbar" id="site-header">
         <div class="container nav-container">
-            <a href="#" class="logo">
+            <a href="#about" class="logo" data-tab-link="about">
                 <span class="logo-symbol">&lt;</span>
                 <span class="logo-text">Ahmad.Dev</span>
                 <span class="logo-symbol">/&gt;</span>
             </a>
-            
-            <nav class="nav-links" id="nav-s1" data-semester="1">
-                <a href="#about" class="nav-link active" data-tab="about"><i class="fa-solid fa-user"></i> About</a>
-                <a href="#cv" class="nav-link" data-tab="cv"><i class="fa-solid fa-file-invoice"></i> CV</a>
-                <a href="#interview" class="nav-link" data-tab="interview"><i class="fa-solid fa-video"></i> Interview Video</a>
-                <a href="#reflections" class="nav-link" data-tab="reflections"><i class="fa-solid fa-brain"></i> STAR Reflections</a>
-            </nav>
-            <nav class="nav-links nav-links--s2" id="nav-s2" data-semester="2" hidden>
-                <a href="#charter" class="nav-link" data-tab="charter"><i class="fa-solid fa-handshake"></i> Team Charter</a>
-                <a href="#stories" class="nav-link" data-tab="stories"><i class="fa-solid fa-list-check"></i> User Stories</a>
-                <a href="#product-backlog" class="nav-link" data-tab="product-backlog"><i class="fa-solid fa-layer-group"></i> Product Backlog</a>
-                <a href="#sprint-backlog" class="nav-link" data-tab="sprint-backlog"><i class="fa-solid fa-bars-progress"></i> Sprint Backlog</a>
-                <a href="#logbook" class="nav-link" data-tab="logbook"><i class="fa-solid fa-book"></i> Logbook</a>
-            </nav>
+
+            <div class="semester-switch" role="group" aria-label="Choose semester">
+                <button type="button" class="sem-btn active" data-sem-go="1">
+                    <span class="sem-btn-num">Semester 1</span><span class="sem-btn-sub">Work Readiness</span>
+                </button>
+                <button type="button" class="sem-btn" data-sem-go="2">
+                    <span class="sem-btn-num">Semester 2</span><span class="sem-btn-sub">Agile Project</span>
+                </button>
+            </div>
 
             <div class="nav-actions">
-                <div class="semester-switch" role="group" aria-label="Choose semester">
-                    <button type="button" class="sem-btn active" data-semester="1">Semester 1</button>
-                    <button type="button" class="sem-btn" data-semester="2">Semester 2</button>
-                </div>
                 <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark/light mode">
                     <i class="fa-solid fa-sun icon-sun"></i>
                     <i class="fa-solid fa-moon icon-moon"></i>
                 </button>
+            </div>
+        </div>
+
+        <div class="subnav">
+            <div class="container subnav-inner">
+                <nav class="nav-links" id="nav-s1" data-semester="1" data-label="Semester 1" aria-label="Semester 1 sections">
+                    <a href="#about" class="nav-link active" data-tab="about"><i class="fa-solid fa-user"></i> About</a>
+                    <a href="#cv" class="nav-link" data-tab="cv"><i class="fa-solid fa-file-invoice"></i> CV</a>
+                    <a href="#interview" class="nav-link" data-tab="interview"><i class="fa-solid fa-video"></i> Interview Video</a>
+                    <a href="#reflections" class="nav-link" data-tab="reflections"><i class="fa-solid fa-brain"></i> STAR Reflections</a>
+                </nav>
+                <nav class="nav-links nav-links--s2" id="nav-s2" data-semester="2" data-label="Semester 2" aria-label="Semester 2 sections" hidden>
+                    <a href="#charter" class="nav-link" data-tab="charter"><i class="fa-solid fa-handshake"></i> Team Charter</a>
+                    <a href="#stories" class="nav-link" data-tab="stories"><i class="fa-solid fa-list-check"></i> User Stories</a>
+                    <a href="#product-backlog" class="nav-link" data-tab="product-backlog"><i class="fa-solid fa-layer-group"></i> Product Backlog</a>
+                    <a href="#sprint-backlog" class="nav-link" data-tab="sprint-backlog"><i class="fa-solid fa-bars-progress"></i> Sprint Backlog</a>
+                    <a href="#logbook" class="nav-link" data-tab="logbook"><i class="fa-solid fa-book"></i> Logbook</a>
+                </nav>
             </div>
         </div>
     </header>
@@ -70,17 +79,6 @@
                     <p class="hero-description">
                         Building robust system architectures and clean workflows. Grounded in event leadership and trained in software development at Cape Peninsula University of Technology.
                     </p>
-                    <div class="hero-ctas">
-                        <a href="#cv" class="btn btn-primary" onclick="switchTab('cv')">
-                            <i class="fa-solid fa-arrow-right"></i> Explore CV
-                        </a>
-                        <a href="#interview" class="btn btn-secondary" onclick="switchTab('interview')">
-                            <i class="fa-solid fa-play"></i> Watch Mock Interview
-                        </a>
-                        <a href="#charter" class="btn btn-secondary" onclick="switchTab('charter')">
-                            <i class="fa-solid fa-diagram-project"></i> Semester 2: Agile
-                        </a>
-                    </div>
                     <div class="hero-contact-info">
                         <div class="hero-contact-text">
                             <span class="contact-item"><i class="fa-solid fa-envelope"></i> reztuhh@gmail.com</span>
@@ -118,6 +116,30 @@
                             }
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Semester picker: the main way to move between the two semesters -->
+        <section class="semester-picker" id="semester-picker">
+            <div class="container">
+                <h2 class="picker-title">Explore my portfolio</h2>
+                <p class="picker-sub">Choose a semester, then use the section tabs to move through it.</p>
+                <div class="sem-cards">
+                    <button type="button" class="sem-card active" data-sem-go="1">
+                        <span class="sem-card-tag">Semester 1</span>
+                        <span class="sem-card-title">Work Readiness</span>
+                        <span class="sem-card-desc">About me, my CV, the mock interview video and STAR reflections.</span>
+                        <span class="sem-card-chips"><em>About</em><em>CV</em><em>Interview</em><em>Reflections</em></span>
+                        <span class="sem-card-go">Open Semester 1 <i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <button type="button" class="sem-card" data-sem-go="2">
+                        <span class="sem-card-tag">Semester 2</span>
+                        <span class="sem-card-title">Agile Project</span>
+                        <span class="sem-card-desc">Perfume Velour Essence: team charter, user stories, backlogs and logbook, each with evidence and a reflection.</span>
+                        <span class="sem-card-chips"><em>Charter</em><em>User Stories</em><em>Product Backlog</em><em>Sprint Backlog</em><em>Logbook</em></span>
+                        <span class="sem-card-go">Open Semester 2 <i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
                 </div>
             </div>
         </section>
